@@ -1,0 +1,23 @@
+﻿@using System.ServiceModel.Syndication
+@* Views/Home/_RssWidget.cshtml *@
+@model SyndicationFeed?
+
+@if (Model!=null)
+{
+    <div class="rss-widget">
+        <h3>Tin tức mới nhất</h3>
+        <ul>
+            @foreach (var item in Model.Items.Take(3))
+            {
+                <li>
+                    <a href="@item.Links[0].Uri" target="_blank">@item.Title.Text</a>
+                    <span>@item.PublishDate.ToString("dd/MM")</span>
+                </li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <p class="rss-error">Đang cập nhật tin tức...</p>
+}

@@ -20,3 +20,99 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* wwwroot/css/site.css */
+.rss-feed {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+}
+
+    .rss-feed h3 {
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 0.5rem;
+    }
+
+
+/* RSS Widget Styles */
+.rss-widget {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.rss-title {
+    color: #ff6600;
+    font-size: 1.2rem;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 8px;
+}
+
+.rss-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rss-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+    .rss-item:last-child {
+        border-bottom: none;
+    }
+
+.rss-date {
+    color: #777;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+.rss-error {
+    color: #999;
+    font-style: italic;
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.content-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.news-section {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-top: 2px solid #ff6a00;
+    margin-left: 20px;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .news-section {
+        position: static;
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+.rss-widget {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}

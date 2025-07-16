@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<RssService>(); // Thêm dòng này RSS service
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Hshop2023Context>(options =>
 {

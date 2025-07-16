@@ -1,0 +1,32 @@
+﻿@using System.ServiceModel.Syndication
+@model SyndicationFeed
+
+
+<div class="rss-container">
+    @if (Model?.Items != null && Model.Items.Any())
+    {
+        <div class="rss-widget">
+            <h3 class="rss-title">
+                <i class="fas fa-rss-square"></i> Tin tức mới nhất
+            </h3>
+            <ul class="rss-list">
+                @foreach (var item in Model.Items.Take(5))
+                {
+                    <li class="rss-item">
+                        <!-- Thêm hình ảnh nếu có -->
+                        @if (item.Content is TextSyndicationContent textContent && textContent.Text.Contains("<img"))
+                        {
+                            @Html.Raw(textContent.Text)
+                        }
+                        <a href="@item.Links.FirstOrDefault()?.Uri" target="_blank">
+                            @item.Title?.Text
+                        </a>
+                        <span class="rss-date">
+                            (@item.PublishDate.ToString("dd/MM/yyyy"))
+                        </span>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>
