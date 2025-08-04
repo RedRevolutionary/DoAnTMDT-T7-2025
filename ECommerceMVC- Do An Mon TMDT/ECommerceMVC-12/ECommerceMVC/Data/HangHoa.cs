@@ -10,7 +10,7 @@ public partial class HangHoa
     public string TenHh { get; set; } = null!;
 
     public string? TenAlias { get; set; }
-
+    
     public int MaLoai { get; set; }
 
     public string? MoTaDonVi { get; set; }

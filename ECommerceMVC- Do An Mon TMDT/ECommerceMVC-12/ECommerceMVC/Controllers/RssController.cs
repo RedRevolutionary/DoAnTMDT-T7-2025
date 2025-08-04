@@ -20,7 +20,7 @@ public class RssController : Controller
         {
             if (!_cache.TryGetValue(CacheKey, out SyndicationFeed feed))
             {
-                string rssUrl = "https://example.com/feed.rss";
+                string rssUrl = "https://vnexpress.net/rss/tin-moi-nhat.rss";
                 using (var reader = XmlReader.Create(rssUrl))
                 {
                     feed = SyndicationFeed.Load(reader);

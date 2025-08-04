@@ -7,7 +7,7 @@
     <div class="rss-widget">
         <h3>Tin tức mới nhất</h3>
         <ul>
-            @foreach (var item in Model.Items.Take(3))
+            @foreach (var item in Model.Items.Take(10))
             {
                 <li>
                     <a href="@item.Links[0].Uri" target="_blank">@item.Title.Text</a>

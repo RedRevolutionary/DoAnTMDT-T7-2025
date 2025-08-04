@@ -31,7 +31,7 @@ namespace ECommerceMVC.Controllers
 				Hinh = p.Hinh ?? "",
 				MoTaNgan = p.MoTaDonVi ?? "",
 				TenLoai = p.MaLoaiNavigation.TenLoai
-			});
+            });
 			return View(result);
 		}
 
@@ -57,30 +57,60 @@ namespace ECommerceMVC.Controllers
 		}
 
 
-		public IActionResult Detail(int id)
-		{
-			var data = db.HangHoas
-				.Include(p => p.MaLoaiNavigation)
-				.SingleOrDefault(p => p.MaHh == id);
-			if (data == null)
-			{
-				TempData["Message"] = $"Không thấy sản phẩm có mã {id}";
-				return Redirect("/404");
-			}
+        // Giữ nguyên action cũ để hỗ trợ URL cũ (nếu cần)
+        public IActionResult Detail(int id)
+        {
+            var data = db.HangHoas
+                .Include(p => p.MaLoaiNavigation)
+                .SingleOrDefault(p => p.MaHh == id);
+            if (data == null)
+            {
+                TempData["Message"] = $"Không thấy sản phẩm có mã {id}";
+                return Redirect("/404");
+            }
+            return RedirectToAction("DetailBySlug", new { tenalias = data.TenAlias });
+        }
 
-			var result = new ChiTietHangHoaVM
-			{
-				MaHh = data.MaHh,
-				TenHH = data.TenHh,
-				DonGia = data.DonGia ?? 0,
-				ChiTiet = data.MoTa ?? string.Empty,
-				Hinh = data.Hinh ?? string.Empty,
-				MoTaNgan = data.MoTaDonVi ?? string.Empty,
-				TenLoai = data.MaLoaiNavigation.TenLoai,
-				SoLuongTon = 10,//tính sau
-				DiemDanhGia = 5,//check sau
-			};
-			return View(result);
-		}
-	}
+        // Action mới dùng TenAlias
+        [Route("hang-hoa/{tenalias}")]
+        public IActionResult DetailBySlug(string tenalias)
+        {
+            var data = db.HangHoas
+                .Include(p => p.MaLoaiNavigation)
+                .FirstOrDefault(p => p.TenAlias == tenalias);
+            if (data == null)
+            {
+                TempData["Message"] = "Không tìm thấy sản phẩm";
+                return Redirect("/404");
+            }
+            // Tăng số lượt xem
+            data.SoLanXem++;
+            db.SaveChanges();
+            var result = new ChiTietHangHoaVM
+            {
+                MaHh = data.MaHh,
+                TenHH = data.TenHh,
+                DonGia = data.DonGia ?? 0,
+                ChiTiet = data.MoTa ?? string.Empty,
+                Hinh = data.Hinh ?? string.Empty,
+                MoTaNgan = data.MoTaDonVi ?? string.Empty,
+                TenLoai = data.MaLoaiNavigation.TenLoai,
+                SoLuongTon = 10,
+                DiemDanhGia = 5
+            };
+
+            // Meta tags cho Facebook
+            var request = HttpContext.Request;
+            var baseUrl = $"{request.Scheme}://{request.Host}";
+
+            ViewBag.MetaTitle = result.TenHH;
+            ViewBag.MetaDescription = result.MoTaNgan;
+            ViewBag.MetaImage = $"{baseUrl}/Hinh/HangHoa/{result.Hinh}";
+            ViewBag.MetaUrl = Url.Action("DetailBySlug", "HangHoa", new { tenalias = data.TenAlias }, request.Scheme);
+            
+            return View("Detail", result); // Sử dụng chung view Detail.cshtml
+        }
+
+
+    }
 }

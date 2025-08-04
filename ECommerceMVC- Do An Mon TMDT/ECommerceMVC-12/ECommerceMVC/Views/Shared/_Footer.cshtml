@@ -9,12 +9,55 @@
                         <p class="text-secondary mb-0">Sản phẩm chất lượng</p>
                     </a>
                 </div>
+                
                 <div class="col-lg-6">
-                    <div class="position-relative mx-auto">
-                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="Nhập email của bạn">
-                        <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Đăng ký ngay</button>
+                    <div id="mc_embed_signup">
+                        <form action="https://gmail.us3.list-manage.com/subscribe/post?u=f60cfadefacd0b15b97559b07&amp;id=751963cd21&amp;f_id=0019c1e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                            <div class="position-relative mx-auto">
+                                <!-- Trường email - Giữ nguyên style -->
+                                <input class="form-control border-0 w-100 py-3 px-4 rounded-pill"
+                                       type="email"
+                                       name="EMAIL"
+                                       id="mce-EMAIL"
+                                       placeholder="Nhập email của bạn"
+                                       required>
+
+                                <!-- Nút submit - Giữ nguyên style -->
+                                <button type="submit"
+                                        class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                                        style="top: 0; right: 0;"
+                                        name="subscribe"
+                                        id="mc-embedded-subscribe">
+                                    Đăng ký ngay
+                                </button>
+
+                                <!-- Hidden field bắt buộc của Mailchimp -->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input type="text" name="b_f60cfadefacd0b15b97559b07_751963cd21" tabindex="-1" value="">
+                                </div>
+                            </div>
+
+                            <!-- Khu vực hiển thị thông báo (thêm vào) -->
+                            <div id="mce-responses" class="mt-2 text-center">
+                                <div class="response text-white" id="mce-error-response" style="display:none"></div>
+                                <div class="response text-white" id="mce-success-response" style="display:none"></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
+
+                <!-- Thêm script Mailchimp vào cuối footer -->
+                <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+                <script>
+                    (function($) {
+                        window.fnames = new Array();
+                        window.ftypes = new Array();
+                        fnames[0]='EMAIL'; ftypes[0]='email';
+                        // Có thể thêm các trường khác nếu cần
+                    }(jQuery));
+                    var $mcj = jQuery.noConflict(true);
+                </script>
+
                 <div class="col-lg-3">
                     <div class="d-flex justify-content-end pt-3">
                         <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
@@ -25,6 +68,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">

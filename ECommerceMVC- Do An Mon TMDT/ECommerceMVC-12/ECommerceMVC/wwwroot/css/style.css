@@ -1,4 +1,4 @@
-
+﻿
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
@@ -13,13 +13,13 @@
      opacity: 1;
  }
 
- .back-to-top {
+.back-to-top {
     position: fixed;
-    right: 30px;
-    bottom: 30px;
+    right: 170px;
+    bottom: 18px;
     display: flex;
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     align-items: center;
     justify-content: center;
     transition: 0.5s;
@@ -495,3 +495,54 @@
 }
 /*** Footer End ***/
 
+/*** Fanpage Button Start ***/
+.fanpage-button {
+    position: fixed;
+    bottom: 18px;
+    right: 100px; /* Tránh chồng lấn nút "back-to-top" */
+    width: 60px;
+    height: 60px;
+    background: #0066FF; /* Màu Facebook Messenger */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99; /* Cùng cấp với .back-to-top */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+    .fanpage-button:hover {
+        background: #0055CC;
+        transform: scale(1.1);
+    }
+
+    .fanpage-button i {
+        color: white;
+        font-size: 24px;
+    }
+/*** Fanpage Button End ***/
+
+/* Tùy chỉnh nút ShareThis */
+.st-btn[data-network="facebook"] {
+    background-color: #4267B2 !important;
+    border-radius: 50px !important;
+    padding: 8px 15px !important;
+    height: 40px !important;
+    line-height: 24px !important;
+    color: white !important;
+    font-weight: 500;
+    border: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .st-btn[data-network="facebook"]:hover {
+        background-color: #365899 !important;
+    }
+
+    .st-btn[data-network="facebook"] .st-logo {
+        filter: brightness(0) invert(1);
+        margin-right: 5px;
+    }

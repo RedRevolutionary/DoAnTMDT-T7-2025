@@ -1,163 +1,273 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width" />
-	<title>@ViewBag.Title</title>
-	<meta charset="utf-8">
-	<meta content="" name="keywords">
-	<meta content="" name="description">
+    <!-- ==================== GOOGLE ANALYTICS ==================== -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Hoặc dùng gtag.js nếu bạn thích -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKCMYC9LC8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RKCMYC9LC8');
+    </script>
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"siteId":4188505,"cookiePolicyId":82564880,"lang":"en","storage":{"useSiteId":true}};
+    </script>
+    <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4188505.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <!-- ==================== META SECTION ==================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EcoShop</title>
 
-	<!-- Google Web Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="ecoshop, eco-friendly, green products">
+    <meta name="description" content="Your sustainable shopping destination">
 
-	<!-- Icon Font Stylesheet -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- ==================== STYLESHEETS ==================== -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
-	<!-- Libraries Stylesheet -->
-	<link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-	<link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Libraries -->
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-	<!-- Customized Bootstrap Stylesheet -->
-	<link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
 
-	<!-- Template Stylesheet -->
-	<link href="~/css/style.css" rel="stylesheet">
-	@RenderSection("Styles", required: false)
+    <!-- Page-specific styles -->
+    @RenderSection("Styles", required: false)
+
+    
+
 </head>
+
 <body>
-	<div>
-		<!-- Spinner Start -->
-		<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-			<div class="spinner-grow text-primary" role="status"></div>
-		</div>
-		<!-- Spinner End -->
-		<!-- Navbar start -->
-		<div class="container-fluid fixed-top">
-			<div class="container topbar bg-primary d-none d-lg-block">
-				<div class="d-flex justify-content-between">
-					<div class="top-info ps-2">
-						<!--<small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street, New York</a></small>-->
-						<!--<small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>-->
-						<!-- Note lai code tren dau trang-->
-					</div>
-					<div class="top-link pe-2">
-						<!--<a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>-->
-						<!--<a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>-->
-						<!--<a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>-->
-						<!--Note lai code o cho nay -->
-					</div>
-				</div>
-			</div>
-			<div class="container px-0">
-				<nav class="navbar navbar-light bg-white navbar-expand-xl">
-					<a asp-action="Index" asp-controller="Home" class="navbar-brand"><h1 class="text-primary display-6">EcoShop</h1></a>
-					<button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-						<span class="fa fa-bars text-primary"></span>
-					</button>
-					<div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-						<div class="navbar-nav mx-auto">
-							<a asp-action="Index" asp-controller="Home" class="nav-item nav-link active">Home</a>
-							<a asp-controller="HangHoa" asp-action="Index" class="nav-item nav-link">Shop</a>
-							<div class="nav-item dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Member</a>
-								<div class="dropdown-menu m-0 bg-secondary rounded-0">
-									<a asp-controller="Cart" asp-action="Index" class="dropdown-item">Cart</a>
-									@if (User.Identity.IsAuthenticated)
-									{
-										<a asp-controller="KhachHang" asp-action="Profile" class="dropdown-item">Profile</a>
-										<a asp-controller="KhachHang" asp-action="DangXuat" class="dropdown-item">Logout</a>
-									}
-									else
-									{
-										<a asp-controller="KhachHang" asp-action="DangKy" class="dropdown-item">Đăng ký</a>
-										<a asp-controller="KhachHang" asp-action="DangNhap" class="dropdown-item">Đăng nhập</a>
-										<a asp-controller="KhachHang" asp-action="QuenMatKhau" class="dropdown-item">Quên mật khẩu</a>
-									}
-								</div>
-							</div>
-							<!--<a href="contact.html" class="nav-item nav-link">Contact</a>-->
-							<a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
+    
+    <!-- ==================== LOADING SPINNER ==================== -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
 
-						</div>
-						<div class="d-flex m-3 me-0">
-							<button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+    <!-- ==================== HEADER SECTION ==================== -->
+    <header class="container-fluid fixed-top">
+        <!-- Top Bar (Desktop only) -->
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <!-- Optional top info -->
+                </div>
+                <div class="top-link pe-2">
+                    <!-- Optional links -->
+                </div>
+            </div>
+        </div>
 
-							@await Component.InvokeAsync("Cart")
+        <!-- Main Navigation -->
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <!-- Brand Logo -->
+                <a asp-action="Index" asp-controller="Home" class="navbar-brand">
+                    <h1 class="text-primary display-6">EcoShop</h1>
+                </a>
 
-							@if (User.Identity.IsAuthenticated)
-							{
-								<a asp-controller="KhachHang" asp-action="Profile" title="Xem thông tin người dùng" class="my-auto">
-									<i class="fas fa-user fa-2x"></i>
-								</a>
-							}
-							else
-							{
-								<a asp-controller="KhachHang" asp-action="DangNhap" title="Đăng nhập nha" class="my-auto">
-									<i class="fas fa-user fa-2x"></i>
-								</a>
-							}
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
-		<!-- Navbar End -->
-		<!-- Modal Search Start -->
-		<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content rounded-0">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body d-flex align-items-center">
-						<div class="input-group w-75 mx-auto d-flex">
-							<input id="searchText" type="search" class="form-control p-3" placeholder="keywords" aria-describedby="seachButton">
-							<span id="seachButton" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal Search End -->
-		<div style="min-height:400px;" class="hero-header"> @RenderBody()</div>
-		<!--thay -->
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a asp-action="Index" asp-controller="Home" class="nav-item nav-link active">Home</a>
+                        <a asp-controller="HangHoa" asp-action="Index" class="nav-item nav-link">Shop</a>
+
+                        <!-- Member Dropdown -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Member</a>
+                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                <a asp-controller="Cart" asp-action="Index" class="dropdown-item">Cart</a>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a asp-controller="KhachHang" asp-action="Profile" class="dropdown-item">Profile</a>
+                                    <a asp-controller="KhachHang" asp-action="DangXuat" class="dropdown-item">Logout</a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="KhachHang" asp-action="DangKy" class="dropdown-item">Đăng ký</a>
+                                    <a asp-controller="KhachHang" asp-action="DangNhap" class="dropdown-item">Đăng nhập</a>
+                                    <a asp-controller="KhachHang" asp-action="QuenMatKhau" class="dropdown-item">Quên mật khẩu</a>
+                                }
+                            </div>
+                        </div>
+
+                        <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
+                    </div>
+
+                    <!-- Utility Icons -->
+                    <div class="d-flex m-3 me-0">
+                        <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                                data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-search text-primary"></i>
+                        </button>
+
+                        @await Component.InvokeAsync("Cart")
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-controller="KhachHang" asp-action="Profile" title="Profile" class="my-auto">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-controller="KhachHang" asp-action="DangNhap" title="Login" class="my-auto">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== SEARCH MODAL ==================== -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Từ Khóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input id="searchText" type="search" class="form-control p-3" placeholder="keywords" aria-describedby="searchButton">
+                        <span id="searchButton" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="hero-header" style="min-height:400px;">
+        @RenderBody()
+    </main>
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer>
+        @await Html.PartialAsync("_Footer")
+    </footer>
+
+    <!-- ==================== COPYRIGHT SECTION ==================== -->
+    <div class="copyright-section">
+        @await Html.PartialAsync("_Copyright")
+    </div>
+
+    <!-- ==================== FLOATING ELEMENTS ==================== -->
+    <!-- Back to Top Button -->
+    <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+        <!-- Messenger Button -->
+        <div class="fanpage-button">
+            <a href="https://www.messenger.com/t/61578369736724/" target="_blank" aria-label="Chat với chúng tôi">
+                <i class="fab fa-facebook-messenger"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Facebook Messenger Plugin -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v18.0'
+            });
+            console.log('Facebook SDK initialized');
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            js.async = true;
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="fb-customerchat"
+         page_id="61578369736724"
+         theme_color="#0084ff"
+         greeting_dialog_display="show"
+         greeting_dialog_delay="3">
+    </div>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+        $(document).ready(function () {
+            // Search functionality
+            $("#searchButton").click(function () {
+                let url = `/HangHoa/Search?query=${encodeURIComponent($("#searchText").val())}`;
+                window.location.href = url;
+            });
+
+            // Initialize spinner
+            $(window).on('load', function() {
+                setTimeout(function() {
+                    $('#spinner').fadeOut('slow');
+                }, 500);
+            });
+        });
+    </script>
 
 
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/6888732fc9e4d619256c3187/1j1ag3t02';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
-		@await Html.PartialAsync("_Footer")
-
-		@await Html.PartialAsync("_Copyright")
-	</div>
-
-	<!-- Back to Top -->
-	<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-
-	<!-- JavaScript Libraries -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/lib/easing/easing.min.js"></script>
-	<script src="~/lib/waypoints/waypoints.min.js"></script>
-	<script src="~/lib/lightbox/js/lightbox.min.js"></script>
-	<script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
-
-	<!-- Template Javascript -->
-	<script src="~/js/main.js"></script>
-	@RenderSection("Scripts", required: false)
-
-	<script>
-		$(document).ready(function () {
-			$("#seachButton").click(function () {
-				let url = `/HangHoa/Search?query=` + $("#searchText").val();
-				window.location.href = url;
-			});
-		});
-	</script>
+    <!-- Page-specific scripts -->
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,5 @@
+﻿User-agent: *
+Disallow: /admin/    
+Disallow: /private/  
+Allow: /             
+Sitemap: http://localhost:7148/sitemap.xml
